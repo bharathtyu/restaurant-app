@@ -1,0 +1,18 @@
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid #eee;
+}
+
+.tabs button {
+  padding: 12px 20px;
+  border: none;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.active-tab {
+  color: #ff3b5c;
+  border-bottom: 3px solid #ff3b5c;
+}
