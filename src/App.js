@@ -46,19 +46,22 @@ class App extends Component {
   }
 
   increaseDish = id => {
-    this.setState(prev => ({
+    this.setState(prevState => ({
       quantities: {
-        ...prev.quantities,
-        [id]: prev.quantities[id] + 1,
+        ...prevState.quantities,
+        [id]: prevState.quantities[id] + 1,
       },
     }))
   }
 
   decreaseDish = id => {
-    this.setState(prev => ({
+    this.setState(prevState => ({
       quantities: {
-        ...prev.quantities,
-        [id]: prev.quantities[id] > 0 ? prev.quantities[id] - 1 : 0,
+        ...prevState.quantities,
+        [id]:
+          prevState.quantities[id] > 0
+            ? prevState.quantities[id] - 1
+            : 0,
       },
     }))
   }
@@ -69,10 +72,17 @@ class App extends Component {
   }
 
   render() {
-    const {restaurantName, menuList, activeTabId, quantities, isLoading} =
-      this.state
+    const {
+      restaurantName,
+      menuList,
+      activeTabId,
+      quantities,
+      isLoading,
+    } = this.state
 
-    if (isLoading) return null
+    if (isLoading) {
+      return null
+    }
 
     const activeCategory = menuList.find(
       each => each.menu_category_id === activeTabId,
