@@ -69,8 +69,13 @@ class App extends Component {
   }
 
   render() {
-    const {restaurantName, menuList, activeTabId, quantities, isLoading} =
-      this.state
+    const {
+      restaurantName,
+      menuList,
+      activeTabId,
+      quantities,
+      isLoading,
+    } = this.state
 
     if (isLoading) {
       return null
@@ -83,7 +88,7 @@ class App extends Component {
     const dishes = activeCategory ? activeCategory.category_dishes : []
 
     return (
-      <div className='app-container'>
+      <div className="app-container">
         <Header
           restaurantName={restaurantName}
           cartCount={this.getCartCount()}
@@ -95,7 +100,7 @@ class App extends Component {
           changeTab={this.changeTab}
         />
 
-        <ul className='dishes-list'>
+        <ul className="dishes-list">
           {dishes.map(dish => (
             <DishItem
               key={dish.dish_id}
